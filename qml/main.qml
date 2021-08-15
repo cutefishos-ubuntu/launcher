@@ -38,10 +38,10 @@ Item {
     property real maxSpacing: horizontalSpacing > verticalSpacing ? horizontalSpacing : verticalSpacing
     property bool showed: launcher.showed
 
-    onShowedChanged: {
-        appViewOpacityAni.restart()
-        blurAnimation.restart()
-    }
+//    onShowedChanged: {
+//        appViewOpacityAni.restart()
+//        blurAnimation.restart()
+//    }
 
 //    NumberAnimation {
 //        id: rootOpacityAni
@@ -52,14 +52,14 @@ Item {
 //        duration: 200
 //    }
 
-    NumberAnimation {
-        id: blurAnimation
-        target: wallpaperBlur
-        property: "radius"
-        duration: 300
-        from: root.showed ? 72 : 0
-        to: root.showed ? 0 : 72
-    }
+//    NumberAnimation {
+//        id: blurAnimation
+//        target: wallpaperBlur
+//        property: "radius"
+//        duration: 300
+//        from: root.showed ? 72 : 0
+//        to: root.showed ? 0 : 72
+//    }
 
 //    NumberAnimation {
 //        id: wallpaperColorAni
@@ -80,15 +80,15 @@ Item {
 //        duration: 180
 //    }
 
-    NumberAnimation {
-        id: appViewOpacityAni
-        target: appView
-        property: "opacity"
-        easing.type: Easing.OutCubic
-        from: root.showed ? 1.0 : 0.0
-        to: root.showed ? 0.0 : 1.0
-        duration: 250
-    }
+//    NumberAnimation {
+//        id: appViewOpacityAni
+//        target: appView
+//        property: "opacity"
+//        easing.type: Easing.OutCubic
+//        from: root.showed ? 1.0 : 0.0
+//        to: root.showed ? 0.0 : 1.0
+//        duration: 250
+//    }
 
     System.Wallpaper {
         id: backend
@@ -140,7 +140,7 @@ Item {
         id: mainLayout
         anchors.fill: parent
         anchors.leftMargin: launcher.screenAvailableRect ? launcher.screenAvailableRect.x : 0
-        anchors.topMargin: launcher.screenAvailableRect ? launcher.screenAvailableRect.y : 0
+        anchors.topMargin: launcher.screenAvailableRect.y ? launcher.screenAvailableRect.y : 28
         anchors.rightMargin: launcher.screenRect.width - (launcher.screenAvailableRect.x + launcher.screenAvailableRect.width)
         anchors.bottomMargin: launcher.screenRect.height - (launcher.screenAvailableRect.y + launcher.screenAvailableRect.height - root.verticalSpacing)
 
